@@ -1,27 +1,39 @@
 {
   "name": "pesv-frontend",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Sistema PESV - Plan Estratégico de Seguridad Vial",
   "private": true,
   "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "@capacitor/android": "^8.0.2",
+    "@capacitor/cli": "^8.0.2",
+    "@capacitor/core": "^8.0.2",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.294.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "recharts": "^2.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cap:open": "npx cap open android",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:build": "npm run build && npx cap sync android && node scripts/build-apk.js",
+    "cap:debug-install": "npm run build && npx cap copy android && cd android && .\\gradlew.bat assembleDebug && adb install -r app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "cap:live-example": "echo 'See capacitor.server.example.json for live-reload example'",
+    "scripts:install-debug-windows": "scripts\\build-install-debug.bat",
+    "scripts:install-debug-ps1": "powershell -ExecutionPolicy ByPass -File scripts\\build-install-debug.ps1"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -35,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }

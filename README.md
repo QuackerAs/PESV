@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# PESV Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema de Gestión de Seguridad Vial - Frontend
 
-## Available Scripts
+## Descripción
 
-In the project directory, you can run:
+Aplicación web para la gestión integral de Seguridad Vial, permitiendo administración de usuarios, vehículos, capacitaciones, indicadores y más. Diseño profesional corporativo con navegación intuitiva.
 
-### `npm start`
+## Inicio Rápido
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Requisitos Previos
+- Node.js (v14 o superior)
+- npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Instalación
 
-### `npm test`
+```bash
+# Clonar el repositorio
+git clone <repo-url>
+cd pesv-frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Instalar dependencias
+npm install
+```
 
-### `npm run build`
+### Ejecutar en Desarrollo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La aplicación estará disponible en: **http://localhost:3001**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Build para Producción
 
-### `npm run eject`
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Credenciales de Prueba
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Email | Contraseña | Rol |
+|-------|-----------|-----|
+| `admin@pesv.com` | `admin123` | Administrador |
+| `user@pesv.com` | `user123` | Usuario |
+| `coordinador@pesv.com` | `coord123` | Coordinador |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Características
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Autenticación segura (Mock auth)
+- Dashboard administrador con estadísticas
+- Gestión de usuarios
+- Navegación sidebar fija y responsiva
+- Diseño profesional corporativo
+- Sistema de roles y permisos
+- Interfaz intuitiva
 
-## Learn More
+## Tecnologías
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React** 18.2.0 - Librería UI
+- **React Router** 6.20.0 - Enrutamiento
+- **Lucide React** - Iconos
+- **Axios** - Cliente HTTP
+- **CSS Modules** - Estilos
+- **React Scripts** - Herramientas de compilación
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Estructura del Proyecto
 
-### Code Splitting
+```
+src/
+├── context/          # Estado global (autenticación)
+├── hooks/            # Hooks personalizados
+├── services/         # Llamadas a API
+├── components/       # Componentes reutilizables
+│   ├── common/       # Botones, inputs
+│   └── layout/       # Sidebar, Layout
+├── pages/            # Páginas de la aplicación
+├── styles/           # Estilos globales
+└── App.js           # Configuración de rutas
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Documentación
 
-### Analyzing the Bundle Size
+- [Guía de Desarrollo](./DEVELOPMENT_GUIDE.md) - Detalles técnicos y patrones
+- [Resumen de Cleanup](./CODE_CLEANUP_SUMMARY.md) - Cambios de refactorización
+- [Mejoras de Arquitectura](./ARCHITECTURE_IMPROVEMENTS.md) - Principios SOLID
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Paleta de Colores
 
-### Making a Progressive Web App
+- **Primario:** Azul `#2563EB`
+- **Secundario:** Gris-Azul `#64748B`
+- **Éxito:** Verde `#059669`
+- **Peligro:** Rojo `#DC2626`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Scripts Disponibles
 
-### Advanced Configuration
+```bash
+npm start              # Ejecutar en desarrollo
+npm run build          # Compilar para producción
+npm test              # Ejecutar pruebas
+npm run eject         # Ejectar configuración (irreversible)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Configuración
 
-### Deployment
+La aplicación usa un sistema de autenticación mock. Para cambiar a backend real, modificar en `src/services/api.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+const USE_MOCK = false;  // Cambiar de true a false
+```
 
-### `npm run build` fails to minify
+## Licencia
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Todos los derechos reservados © 2026
+
+---
+
+**Estado:** Listo para producción | **Última actualización:** Enero 2026

@@ -1,24 +1,95 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import Layout from './components/layout/Layout';
+import Login from './pages/Login';
+import AdminDashboard from './pages/admin/Dashboard';
+import UserDashboard from './pages/user/Dashboard';
+import MisRutas from './pages/user/MisRutas';
+import './styles/globals.css';
+
+const PrivateRoute = ({ children }) => {
+  const { user } = useAuth();
+  return user ? children : <Navigate to="/login" />;
+};
+
+const AdminRoute = ({ children }) => {
+  const { user, isAdmin } = useAuth();
+  
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+  
+  if (!isAdmin()) {
+    return <Navigate to="/dashboard" />;
+  }
+  
+  return children;
+};
+
+function AppRoutes() {
+  const { user, isAdmin } = useAuth();
+
+  return (
+    <Routes>
+      <Route 
+        path="/login" 
+        element={user ? <Navigate to="/dashboard" /> : <Login />} 
+      />
+
+      <Route 
+        path="/dashboard" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              {isAdmin() ? <AdminDashboard /> : <UserDashboard />}
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/admin/*" 
+        element={
+          <AdminRoute>
+            <Layout>
+              <Routes>
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="*" element={<div>Página en construcción</div>} />
+              </Routes>
+            </Layout>
+          </AdminRoute>
+        } 
+      />
+
+      <Route 
+        path="/user/*" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <Routes>
+                <Route path="dashboard" element={<UserDashboard />} />
+                <Route path="mis-rutas" element={<MisRutas />} />
+                <Route path="*" element={<div>Página en construcción</div>} />
+              </Routes>
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route path="/" element={<Navigate to="/dashboard" />} />
+      <Route path="*" element={<Navigate to="/dashboard" />} />
+    </Routes>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </Router>
   );
 }
 
