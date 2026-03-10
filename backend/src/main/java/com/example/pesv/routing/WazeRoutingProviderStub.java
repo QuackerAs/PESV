@@ -11,8 +11,8 @@ public class WazeRoutingProviderStub implements RoutingProvider {
         double dx = originLat - destLat;
         double dy = originLng - destLng;
         double straight = Math.sqrt(dx*dx + dy*dy);
-        long distanceMeters = (long)(straight * 111000); // rough lat->meters
-        long duration = Math.max(60, distanceMeters / 1500); // assume ~54km/h ~1500 m/min
+        long distanceMeters = (long)(straight * 111000); // aproximación latitud->metros
+        long duration = Math.max(60, distanceMeters / 1500); // asume ~54km/h (~1500 m/min)
         return new RouteResult(distanceMeters, duration * 60, "");
     }
 

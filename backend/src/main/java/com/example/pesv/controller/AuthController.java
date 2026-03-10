@@ -28,7 +28,7 @@ public class AuthController {
         }
         map.put("id", username.equals("admin") ? 1 : 2);
         map.put("nombre", username.equals("admin") ? "Admin Demo" : "Usuario Demo");
-        map.put("email", username + "@example.com");
+        map.put("email", username + "@pesv.co");
         map.put("role", role);
         map.put("isCommitteeMember", false);
         return map;

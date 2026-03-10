@@ -1,17 +1,18 @@
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\DemoApplication.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\controller\UserRoutesController.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\routing\dto\RouteResult.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\service\RouteService.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\repository\RouteRepository.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\routing\GoogleMapsRoutingProvider.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\model\Emergency.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\repository\UserRepository.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\routing\RoutingProvider.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\model\User.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\controller\AuthController.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\controller\AdminController.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\repository\EmergencyRepository.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\config\SecurityConfig.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\config\CorsConfig.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\routing\WazeRoutingProviderStub.java
-C:\Users\quackers\Desktop\Important trash\pesv-frontend\backend\src\main\java\com\example\pesv\model\Route.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\config\NoPopupEntryPoint.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\repository\EmergencyRepository.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\routing\GoogleMapsRoutingProvider.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\controller\AdminController.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\model\Route.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\service\RouteService.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\controller\UserRoutesController.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\model\Emergency.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\routing\RoutingProvider.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\controller\AuthController.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\model\User.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\config\SecurityConfig.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\config\CorsConfig.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\DemoApplication.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\routing\dto\RouteResult.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\routing\WazeRoutingProviderStub.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\repository\RouteRepository.java
+C:\Users\quackers\Desktop\pesv\backend\src\main\java\com\example\pesv\repository\UserRepository.java

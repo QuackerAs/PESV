@@ -1,0 +1,47 @@
+{
+  "name": "pesv-frontend",
+  "version": "1.0.0",
+  "description": "Sistema PESV - Plan Estratégico de Seguridad Vial",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^8.0.2",
+    "@capacitor/cli": "^8.0.2",
+    "@capacitor/core": "^8.0.2",
+    "axios": "^1.7.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.294.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.20.0",
+    "react-scripts": "5.0.1",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "cap:open": "npx cap open android",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:build": "npm run build && npx cap sync android && node scripts/build-apk.js",
+    "cap:debug-install": "npm run build && npx cap copy android && cd ..\\android && .\\gradlew.bat assembleDebug && adb install -r app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "cap:live-example": "echo 'See capacitor.server.example.json for live-reload example'"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}

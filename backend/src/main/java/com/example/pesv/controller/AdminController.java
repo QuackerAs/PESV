@@ -41,7 +41,7 @@ public class AdminController {
         if (toAssign == null) {
             return ResponseEntity.badRequest().body(Map.of("error", "Route not found for user"));
         }
-        // Unassign other routes
+        // desasignar las demás rutas
         for (Route r : routes) {
             if (r.getId().equals(routeId)) r.setAssigned(true); else r.setAssigned(false);
         }

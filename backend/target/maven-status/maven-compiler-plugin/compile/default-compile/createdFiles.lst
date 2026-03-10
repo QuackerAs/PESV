@@ -1,6 +1,7 @@
 com\example\pesv\model\User.class
 com\example\pesv\repository\EmergencyRepository.class
 com\example\pesv\service\RouteService.class
+com\example\pesv\config\NoPopupEntryPoint.class
 com\example\pesv\config\CorsConfig.class
 com\example\pesv\controller\AdminController.class
 com\example\pesv\controller\AuthController.class
