@@ -287,7 +287,3 @@ Antes de desplegar, define y valida por separado: entorno y secretos; HTTPS; aut
 - [Guía de integración móvil](./frontend/mobile-integration.md)
 - [Documentación de Capacitor](https://capacitorjs.com/docs)
 - [Entorno de desarrollo de Capacitor](https://capacitorjs.com/docs/getting-started/environment-setup)
-
-## Licencia
-
-No se identifica un archivo `LICENSE` en la raíz del repositorio. No debe asumirse que el código se ofrece bajo una licencia de software libre o que está autorizada su redistribución. Consulta al titular del repositorio antes de reutilizarlo o distribuirlo.
