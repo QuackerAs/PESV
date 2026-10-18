@@ -257,22 +257,6 @@ PESV/
 │   └── README.md
 └── README.md
 ```
-
-## Limitaciones y consideraciones de seguridad
-
-La configuración que hay en el repositorio es de demostración. Antes de cualquier uso real o despliegue público, deben revisarse y corregirse, como mínimo, los siguientes puntos:
-
-1. **Autenticación:** Spring Security define usuarios en memoria y contraseñas con el codificador `{noop}`. Esto no es adecuado para producción.
-2. **Registro de credenciales:** el archivo `frontend/src/services/api.js` contiene mensajes de consola que imprimen las credenciales introducidas y su representación codificada en Base64 durante el inicio de sesión. Deben eliminarse o reemplazarse por registros que nunca incluyan secretos antes de probar con usuarios reales.
-3. **Almacenamiento del acceso:** el cliente guarda el valor de autorización en `localStorage`. Esto aumenta la exposición ante vulnerabilidades de JavaScript, como XSS.
-4. **HTTP Basic:** Base64 no cifra las credenciales. Cualquier tráfico remoto debe protegerse con HTTPS; además, debe revisarse el diseño de autenticación para producción.
-5. **Protecciones web:** la configuración actual deshabilita CSRF para las rutas de API. Deben revisarse el modelo de sesión, la autenticación, la autorización y las protecciones adecuadas al despliegue.
-6. **Persistencia:** H2 está configurada en memoria. No hay que asumir persistencia, copias de seguridad o recuperación de datos.
-7. **Acceso a endpoints:** se debe auditar la autorización por usuario y por recurso, la validación de entradas, los controles de acceso y el tratamiento de errores. Que un endpoint exista no garantiza que esté protegido de forma suficiente.
-8. **Dependencias y framework:** Spring Boot está fijado en la rama 3.1.4. Revisa la política de soporte y actualiza a una versión mantenida antes de exponer el sistema.
-9. **Servicios externos:** configura las claves de API fuera del código, con permisos mínimos y restricciones apropiadas. El proveedor Waze de este repositorio es un stub.
-10. **Validación funcional y normativa:** no se documentan aquí resultados de auditoría independiente, pruebas exhaustivas, certificaciones, cumplimiento normativo ni validación para operación real.
-
 ## Despliegue
 
 Este repositorio no incluye una configuración de despliegue que permita afirmar que el sistema esté listo para producción. No se proporcionan aquí garantías de disponibilidad, escalabilidad, endurecimiento de infraestructura ni publicación de una versión móvil.
