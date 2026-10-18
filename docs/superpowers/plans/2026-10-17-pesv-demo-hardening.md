@@ -14,7 +14,6 @@
 
 - Keep H2 in memory and the two Basic-auth demo accounts; this is a local presentation.
 - Do not add JWT, public registration, multitenancy, PostgreSQL, deployment automation, or dependencies.
-- Do not commit chat transcripts or conversational notes.
 - License repository source under MIT.
 - Use focused commits that describe the user-visible correction.
 
