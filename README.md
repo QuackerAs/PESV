@@ -70,19 +70,19 @@ Para calcular rutas con Google se necesita una clave válida de Google Maps Dire
 
 ### 1. Clonar el repositorio
 
-\`\`\`bash
+```bash
 git clone https://github.com/QuackerAs/PESV.git
 cd PESV
-\`\`\`
+```
 
 ### 2. Instalar dependencias del frontend
 
 Desde la raíz del repositorio:
 
-\`\`\`bash
+```bash
 cd frontend
 npm ci
-\`\`\`
+```
 
 El archivo `package-lock.json` se utiliza para instalar las versiones bloqueadas. Si no vas a trabajar con el proyecto Android, puedes ejecutar únicamente el frontend web y el backend.
 
@@ -90,11 +90,11 @@ El archivo `package-lock.json` se utiliza para instalar las versiones bloqueadas
 
 En una terminal:
 
-\`\`\`bash
+```bash
 cd backend
 mvn clean install
 mvn spring-boot:run
-\`\`\`
+```
 
 La configuración actual indica que Spring Boot escucha en [http://localhost:8081](http://localhost:8081).
 
@@ -102,10 +102,10 @@ La configuración actual indica que Spring Boot escucha en [http://localhost:808
 
 En otra terminal, desde la raíz del repositorio:
 
-\`\`\`bash
+```bash
 cd frontend
 npm start
-\`\`\`
+```
 
 Create React App normalmente sirve el frontend de desarrollo en [http://localhost:3000](http://localhost:3000). Si el puerto está ocupado, puede solicitar otro puerto.
 
@@ -134,9 +134,9 @@ El cliente Axios lee `REACT_APP_API_URL` y, si no está definida, usa `/api`. Pa
 
 Puedes crear `frontend/.env` para personalizar el frontend. Por ejemplo:
 
-\`\`\`env
+```env
 REACT_APP_API_URL=/api
-\`\`\`
+```
 
 Las variables `REACT_APP_*` se incorporan al bundle durante la compilación del frontend; no deben contener secretos.
 
@@ -169,14 +169,14 @@ Esta tabla documenta rutas encontradas en el código, no una API estable ni una 
 
 Ejemplo de cuerpo para calcular una ruta:
 
-\`\`\`json
+```json
 {
   "originLat": 4.711,
   "originLng": -74.0721,
   "destLat": 4.6486,
   "destLng": -74.2479
 }
-\`\`\`
+```
 
 La solicitud se envía a `POST /api/users/{userId}/routes/calc?provider=google`. Las coordenadas del ejemplo son ilustrativas. El proveedor Google necesita una clave configurada y la opción `provider=waze` usa una aproximación simulada, no rutas reales de Waze.
 
@@ -184,12 +184,12 @@ La solicitud se envía a `POST /api/users/{userId}/routes/calc?provider=google`.
 
 El repositorio contiene scripts manuales de prueba en `tests/`:
 
-\`\`\`bash
+```bash
 # Desde la raíz del repositorio, con Node.js instalado
 node tests/backend/backend.test.js
 node tests/proxy/proxy.test.js
 node tests/integration/integration.test.js
-\`\`\`
+```
 
 - La prueba de backend necesita el backend ejecutándose en el puerto 8081.
 - La prueba del proxy necesita el frontend de desarrollo ejecutándose y el backend accesible.
@@ -203,7 +203,7 @@ Consulta [tests/README.md](./tests/README.md) para ver las notas adicionales de 
 
 La configuración de Capacitor está en `frontend/capacitor.config.ts` y el proyecto Android está en la carpeta raíz `android/`. Los siguientes scripts están declarados en `frontend/package.json`:
 
-\`\`\`bash
+```bash
 cd frontend
 
 # Generar el build web y sincronizar los archivos con Android
@@ -214,7 +214,7 @@ npm run cap:open
 
 # Ejecutar el script de compilación del APK de release
 npm run cap:build
-\`\`\`
+```
 
 La compilación depende de que Android Studio, el SDK, Gradle y el entorno local estén configurados correctamente. Que exista un script no implica que el APK se haya compilado, firmado, probado o publicado. La generación de una versión de distribución requiere además revisar la configuración de firma y los requisitos de publicación.
 
@@ -222,7 +222,7 @@ Hay scripts auxiliares en `frontend/`, como `build-and-install.sh` y `build-inst
 
 ## Estructura del repositorio
 
-\`\`\`text
+```text
 PESV/
 ├── frontend/
 │   ├── src/
@@ -256,7 +256,7 @@ PESV/
 │   ├── integration/
 │   └── README.md
 └── README.md
-\`\`\`
+```
 
 ## Limitaciones y consideraciones de seguridad
 
