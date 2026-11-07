@@ -63,6 +63,11 @@ button:disabled {
   cursor: not-allowed;
 }
 
+:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+.a11y-large-text { font-size: 112.5%; }
+.a11y-readable-font body { font-family: Arial, Verdana, sans-serif; }
+.a11y-reduce-motion *, .a11y-reduce-motion *::before, .a11y-reduce-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+
 /* Inputs base */
 input, 
 textarea, 

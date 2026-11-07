@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -37,14 +36,12 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
-            .securityMatcher("/api/**")
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers(new AntPathRequestMatcher("/api/admin/**")).hasRole("ADMIN")
-                .requestMatchers(new AntPathRequestMatcher("/api/auth/me")).authenticated()
+                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                .requestMatchers("/api/**").authenticated()
                 .anyRequest().permitAll()
             )
-            .httpBasic(basic -> basic.authenticationEntryPoint(new NoPopupEntryPoint()))
-            .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+            .httpBasic(basic -> basic.authenticationEntryPoint(new NoPopupEntryPoint()));
         
         return http.build();
     }

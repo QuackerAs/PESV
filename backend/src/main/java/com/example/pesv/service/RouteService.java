@@ -31,7 +31,7 @@ public class RouteService {
 
     public Route calculateAndSave(Long userId, double oLat, double oLng, double dLat, double dLng, String providerKey) throws Exception {
         User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
-        RoutingProvider provider = providers.getOrDefault(providerKey, providers.get("google"));
+        RoutingProvider provider = providers.getOrDefault(providerKey, providers.get("waze"));
         RouteResult res = provider.getRoute(oLat, oLng, dLat, dLng);
         Route r = new Route(user, oLat, oLng, dLat, dLng, res.getDistanceMeters(), res.getDurationSeconds(), res.getOverviewPolyline(), provider.providerName());
         return routeRepository.save(r);
@@ -39,6 +39,10 @@ public class RouteService {
 
     public User findUserById(Long userId) {
         return userRepository.findById(userId).orElse(null);
+    }
+
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 
     public List<Route> listByUser(Long userId) { return routeRepository.findByUserId(userId); }

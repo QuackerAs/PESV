@@ -1,0 +1,2 @@
+# Copy to application-local.properties and run with --spring.profiles.active=local.
+spring.h2.console.enabled=true

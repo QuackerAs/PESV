@@ -52,15 +52,6 @@ api.interceptors.request.use(
         config.headers.Authorization = `Bearer ${token}`;
       }
     }
-    // Log request details in development
-    if (process.env.NODE_ENV === 'development' && config.url?.includes('auth')) {
-      console.log('[AUTH REQUEST]', {
-        url: config.url,
-        method: config.method,
-        hasAuth: !!config.headers.Authorization,
-        authType: config.headers.Authorization?.split(' ')[0] || 'none'
-      });
-    }
     return config;
   },
   (error) => {
@@ -70,22 +61,9 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    if (process.env.NODE_ENV === 'development' && response.config.url?.includes('auth')) {
-      console.log('[AUTH RESPONSE]', {
-        status: response.status,
-        url: response.config.url
-      });
-    }
     return response;
   },
   (error) => {
-    if (process.env.NODE_ENV === 'development' && error.config?.url?.includes('auth')) {
-      console.log('[AUTH ERROR]', {
-        status: error.response?.status,
-        url: error.config.url,
-        message: error.response?.data?.message || error.message
-      });
-    }
     return Promise.reject(error);
   }
 );
@@ -124,50 +102,29 @@ export const authService = {
     // por lo que la aplicación aceptará también correos tipo "admin@..." extrayendo
     // la parte antes de la arroba para facilitar pruebas desde la UI.
     
-    console.log('[LOGIN] Attempting login with email:', credentials.email);
-    
     // normalize credentials: remove whitespace and lowercase
     let username = credentials.email.trim().toLowerCase();
     if (!USE_MOCK && username.includes('@')) {
       username = username.split('@')[0];
     }
 
-    console.log('[LOGIN] Normalized username:', username);
-    
     const credentials_string = `${username}:${credentials.password}`;
     const encoded = btoa(credentials_string);
     const token = `Basic ${encoded}`;
     
-    console.log('[LOGIN] Generated token scheme: Basic');
-    console.log('[LOGIN] Credentials string:', credentials_string);
-    console.log('[LOGIN] Encoded credentials:', encoded);
-    
-    // Store token in localStorage immediately
     localStorage.setItem('token', token);
-    console.log('[LOGIN] Token stored in localStorage');
     
     try {
-      // Make request with explicit Authorization header (bypass interceptor initially)
-      console.log('[LOGIN] Making GET request to /auth/me');
       const resp = await api.get('/auth/me', {
         headers: {
           'Authorization': token
         }
       });
       
-      console.log('[LOGIN] Success! Received user data:', resp.data);
-      
-      // On success, also set in defaults for future requests
       api.defaults.headers.common['Authorization'] = token;
       
       return { data: { token: token, user: resp.data } };
     } catch (error) {
-      console.error('[LOGIN] Authentication failed!');
-      console.error('[LOGIN] Error status:', error.response?.status);
-      console.error('[LOGIN] Error data:', error.response?.data);
-      console.error('[LOGIN] Error message:', error.message);
-      
-      // Clear token on auth failure
       localStorage.removeItem('token');
       delete api.defaults.headers.common['Authorization'];
       throw error;
@@ -220,7 +177,7 @@ export const userService = {
   delete: (id) => api.delete(`/users/${id}`),
   
   // calcular ruta para un usuario (invoca backend)
-  calculateRoute: (userId, payload, provider = 'google') => {
+  calculateRoute: (userId, payload, provider = 'waze') => {
     return api.post(`/users/${userId}/routes/calc?provider=${provider}`, payload);
   },
 

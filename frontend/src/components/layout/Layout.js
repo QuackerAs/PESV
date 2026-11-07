@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import Sidebar from './Sidebar';
 import Button from '../common/Button';
 import { LogOut, Menu } from 'lucide-react';
+import AccessibilityPanel from '../accessibility/AccessibilityPanel';
 import './Layout.css';
 
 const Layout = ({ children }) => {
@@ -47,6 +48,7 @@ const Layout = ({ children }) => {
               <LogOut size={16} />
               Cerrar Sesión
             </Button>
+            <AccessibilityPanel />
           </div>
         </div>
         <div className="layout-content">
