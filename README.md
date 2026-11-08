@@ -8,7 +8,6 @@ Proyecto de portafolio para mostrar una aplicación de gestión de seguridad via
 - Spring Boot, Spring Security y H2
 - Capacitor para Android
 - Bootstrap Icons y preferencias de accesibilidad
-- GitHub Actions para validación continua
 
 ## Funcionalidades demostradas
 
