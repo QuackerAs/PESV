@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Users, Car, FileText, AlertTriangle, 
-  CheckCircle, Clock, TrendingUp, Calendar 
+  Users, Car, FileText, AlertTriangle,
+  CheckCircle, Clock, Calendar, GraduationCap, ClipboardCheck
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
 const AdminDashboard = () => {
@@ -34,18 +35,12 @@ const AdminDashboard = () => {
     });
   };
 
-  const StatCard = ({ icon, title, value, color, trend }) => (
+  const StatCard = ({ icon, title, value, color }) => (
     <div className="stat-card" style={{ '--card-color': color }}>
       <div className="stat-icon">{icon}</div>
       <div className="stat-content">
         <h3 className="stat-value">{value}</h3>
         <p className="stat-title">{title}</p>
-        {trend && (
-          <div className="stat-trend">
-            <TrendingUp size={14} />
-            <span>{trend}</span>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -54,8 +49,8 @@ const AdminDashboard = () => {
     <div className="dashboard">
       <div className="dashboard-header">
         <div>
-          <h1>Panel de Administración</h1>
-          <p>Bienvenido al sistema de gestión PESV</p>
+          <h1>Vista general</h1>
+          <p>Indicadores de demostración del programa de seguridad vial</p>
         </div>
         <div className="dashboard-date">
           <Calendar size={20} />
@@ -74,7 +69,6 @@ const AdminDashboard = () => {
           title="Total Usuarios"
           value={stats.totalUsuarios}
           color="var(--primary-color)"
-          trend="+5% este mes"
         />
         <StatCard
           icon={<Car size={28} />}
@@ -125,14 +119,14 @@ const AdminDashboard = () => {
           </div>
           <div className="activities-list">
             <div className="activity-item">
-              <div className="activity-icon">📚</div>
+              <div className="activity-icon"><GraduationCap size={20} /></div>
               <div className="activity-info">
                 <h4>Capacitaciones Activas</h4>
                 <p>{stats.capacitacionesActivas} programadas este mes</p>
               </div>
             </div>
             <div className="activity-item">
-              <div className="activity-icon">🔍</div>
+              <div className="activity-icon"><ClipboardCheck size={20} /></div>
               <div className="activity-info">
                 <h4>Inspecciones Pendientes</h4>
                 <p>{stats.proximasInspecciones} próximas inspecciones</p>
@@ -147,22 +141,10 @@ const AdminDashboard = () => {
           <h2>Acciones Rápidas</h2>
         </div>
         <div className="quick-actions">
-          <button className="quick-action-btn">
+          <Link className="quick-action-btn" to="/admin/usuarios">
             <Users size={20} />
-            <span>Agregar Usuario</span>
-          </button>
-          <button className="quick-action-btn">
-            <Car size={20} />
-            <span>Registrar Vehículo</span>
-          </button>
-          <button className="quick-action-btn">
-            <FileText size={20} />
-            <span>Subir Documento</span>
-          </button>
-          <button className="quick-action-btn">
-            <Calendar size={20} />
-            <span>Programar Capacitación</span>
-          </button>
+            <span>Consultar usuarios</span>
+          </Link>
         </div>
       </div>
     </div>

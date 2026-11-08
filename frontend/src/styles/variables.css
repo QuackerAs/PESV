@@ -1,7 +1,7 @@
 :root {
-  --primary-color: #2563EB;        /* Azul corporativo profesional */
-  --primary-dark: #1E40AF;
-  --primary-light: #3B82F6;
+  --primary-color: #245b85;
+  --primary-dark: #173f60;
+  --primary-light: #dceaf3;
   
   --secondary-color: #64748B;      /* Gris-azulado neutro */
   --secondary-dark: #475569;
@@ -17,8 +17,10 @@
   --info-color: #2563EB;
   
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F8FAFC;
+  --bg-secondary: #f3f5f7;
   --bg-tertiary: #F1F5F9;
+  --surface-raised: #ffffff;
+  --surface-muted: #edf2f5;
   --bg-dark: #1E293B;
   
   --text-primary: #1E293B;
@@ -28,15 +30,25 @@
   
   --border-color: #E2E8F0;
   --border-light: #F1F5F9;
+  --button-primary: #245b85;
+  --button-primary-hover: #173f60;
+  --button-secondary: #536779;
+  --button-secondary-hover: #3d4e5d;
+  --button-success: #1f7a5a;
+  --button-success-hover: #176147;
+  --button-warning: #a85e12;
+  --button-warning-hover: #82480d;
+  --button-danger: #b63b3b;
+  --button-danger-hover: #922e2e;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
   
-  --sidebar-width: 280px;
-  --header-height: 56px;
-  --border-radius: 6px;
-  --border-radius-sm: 4px;
-  --border-radius-lg: 8px;
+  --sidebar-width: 244px;
+  --header-height: 64px;
+  --border-radius: 3px;
+  --border-radius-sm: 2px;
+  --border-radius-lg: 4px;
   
   /* Espaciado */
   --spacing-xs: 4px;
@@ -46,8 +58,8 @@
   --spacing-xl: 32px;
   
   /* Fuentes */
-  --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   
   /* Transiciones */
   --transition-fast: 0.15s ease;
@@ -57,12 +69,26 @@
 
 /* Tema oscuro (opcional para futuras mejoras) */
 [data-theme="dark"] {
-  --bg-primary: #1A1A1A;
-  --bg-secondary: #242424;
-  --bg-tertiary: #2A2A2A;
-  --text-primary: #FFFFFF;
-  --text-secondary: #B0B0B0;
-  --border-color: #404040;
+  --bg-primary: #222b35;
+  --bg-secondary: #17212b;
+  --bg-tertiary: #2c3946;
+  --text-primary: #f4f7fa;
+  --text-secondary: #c0ccd7;
+  --border-color: #435262;
+  --border-light: #364554;
+  --surface-raised: #2c3946;
+  --surface-muted: #1d2833;
+  --primary-light: #244b69;
+  --button-primary: #4c8bb7;
+  --button-primary-hover: #6ca3c9;
+  --button-secondary: #687b8c;
+  --button-secondary-hover: #8192a1;
+  --button-success: #348b68;
+  --button-success-hover: #49a57f;
+  --button-warning: #ca852f;
+  --button-warning-hover: #de9d4d;
+  --button-danger: #cf5a5a;
+  --button-danger-hover: #e27474;
 }
 
 [data-contrast="true"] {

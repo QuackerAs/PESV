@@ -4,8 +4,8 @@
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background: var(--bg-primary);
-  border-right: 1px solid var(--border-color);
+  background: #26313d;
+  color: #e9eef3;
   overflow-y: auto;
   z-index: 950;
   display: flex;
@@ -13,8 +13,8 @@
   transition: transform 0.25s ease;
 }
 
-.sidebar.closed {
-  transform: translateX(-100%);
+@media (max-width: 1024px) {
+  .sidebar.closed { transform: translateX(-100%); }
 }
 
 .sidebar-header {
@@ -22,14 +22,14 @@
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  background-color: var(--bg-primary);
+  background-color: #202a35;
 }
 
 .sidebar-close {
   margin-left: auto;
   background: transparent;
   border: none;
-  color: var(--text-secondary);
+  color: #c9d3dd;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -37,23 +37,26 @@
 }
 
 .sidebar-close:hover {
-  color: var(--text-primary);
+  color: #fff;
 }
 
 .sidebar-header h2 {
   font-size: 0.875rem;
   font-weight: 700;
   margin: 0;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: #fff;
+  letter-spacing: 0.02em;
 }
+.sidebar-header h2 span { display: block; color: #aebcca; font-size: 0.72rem; font-weight: 400; margin-top: 5px; letter-spacing: 0; }
 
 .sidebar-nav {
   flex: 1;
   padding: var(--spacing-md) 0;
   overflow-y: auto;
 }
+.sidebar-foot { padding: 16px 24px; border-top: 1px solid #435262; color: #aebcca; font-size: 12px; }
+.sidebar-close { display: none; }
+@media (max-width: 1024px) { .sidebar-close { display: flex; } }
 
 .sidebar-item {
   margin-bottom: 2px;
@@ -64,14 +67,14 @@
   align-items: center;
   gap: var(--spacing-md);
   padding: 11px var(--spacing-lg);
-  color: var(--text-secondary);
+  color: #c9d3dd;
   text-decoration: none;
   transition: all 0.2s ease;
   position: relative;
   font-size: 0.9375rem;
   font-weight: 500;
   margin: 0 var(--spacing-sm);
-  border-radius: var(--border-radius);
+  border-radius: 2px;
 }
 
 .sidebar-link::before {
@@ -81,16 +84,15 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: var(--primary-color);
+  background: #78abc9;
   transform: scaleY(0);
   transition: transform 0.2s ease;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 .sidebar-link:hover {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  padding-left: calc(var(--spacing-lg) + 2px);
+  background-color: #354554;
+  color: #fff;
 }
 
 .sidebar-link:hover::before {
@@ -98,8 +100,8 @@
 }
 
 .sidebar-link.active {
-  background-color: rgba(37, 99, 235, 0.08);
-  color: var(--primary-color);
+  background-color: #384b5e;
+  color: #fff;
   font-weight: 600;
 }
 
@@ -128,8 +130,8 @@
 .sidebar-submenu {
   padding-left: 0;
   margin-top: 0;
-  background-color: var(--bg-secondary);
-  border-left: 2px solid var(--primary-color);
+  background-color: #202a35;
+  border-left: 2px solid #78abc9;
   margin: 4px var(--spacing-sm) 4px calc(var(--spacing-lg) + 20px);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -138,22 +140,21 @@
 .sidebar-sublink {
   display: block;
   padding: 8px var(--spacing-md);
-  color: var(--text-secondary);
+  color: #c9d3dd;
   text-decoration: none;
   font-size: 0.8125rem;
   transition: all 0.2s ease;
 }
 
 .sidebar-sublink:hover {
-  color: var(--primary-color);
-  background-color: rgba(37, 99, 235, 0.06);
-  padding-left: calc(var(--spacing-md) + 4px);
+  color: #fff;
+  background-color: #354554;
 }
 
 .sidebar-sublink.active {
-  color: var(--primary-color);
+  color: #fff;
   font-weight: 600;
-  background-color: rgba(37, 99, 235, 0.1);
+  background-color: #354554;
 }
 
 .sidebar::-webkit-scrollbar {

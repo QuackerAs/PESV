@@ -16,8 +16,7 @@ const Layout = ({ children }) => {
     navigate('/login');
   };
 
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const isNative = typeof window.Capacitor !== 'undefined';
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(v => !v);
 
@@ -29,15 +28,8 @@ const Layout = ({ children }) => {
         <div className="layout-header">
           <div className="header-content">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              {isNative && (
-                <Button
-                  variant="outline"
-                  size="small"
-                  onClick={toggleSidebar}
-                  icon={<Menu size={16} />}
-                />
-              )}
-              <span className="header-user">Bienvenido, {user?.name}</span>
+              <button className="menu-toggle" onClick={toggleSidebar} aria-label={sidebarOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={sidebarOpen}><Menu size={20} /></button>
+              <span className="header-user">PESV <span className="header-divider">/</span> {user?.name || 'Panel de trabajo'}</span>
             </div>
             <Button 
               variant="outline" 
@@ -46,7 +38,7 @@ const Layout = ({ children }) => {
               style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
             >
               <LogOut size={16} />
-              Cerrar Sesión
+              <span className="logout-label">Cerrar sesión</span>
             </Button>
             <AccessibilityPanel />
           </div>

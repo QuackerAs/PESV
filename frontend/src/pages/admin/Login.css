@@ -209,3 +209,18 @@
     align-items: flex-start;
   }
 }
+
+/* Acceso al espacio de trabajo */
+.login-container { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(340px, 480px); gap: clamp(32px, 7vw, 120px); background: #26313d; padding: clamp(24px, 6vw, 96px); }
+.login-intro { color: #f4f7fa; max-width: 560px; align-self: center; }
+.login-accessibility { position: absolute; top: 20px; right: 24px; z-index: 2; }
+.login-mark { display: inline-block; padding: 10px 13px; border: 1px solid #88a5b8; font-size: 1.1rem; font-weight: 700; letter-spacing: .05em; }
+.login-intro h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.12; max-width: 520px; margin: 48px 0 20px; }
+.login-intro p { color: #c9d3dd; font-size: 1.1rem; max-width: 450px; }
+.login-intro small { color: #aebcca; }
+.login-card { max-width: none; padding: clamp(24px, 4vw, 48px); background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; box-shadow: none; animation: none; }
+.login-header { text-align: left; }
+.login-logo { display: none; }
+.login-header h1 { color: var(--text-primary); }
+.login-error { animation: none; }
+@media (max-width: 760px) { .login-container { grid-template-columns: 1fr; gap: 24px; align-content: center; } .login-intro h2 { font-size: 1.6rem; margin: 18px 0 8px; } .login-intro p { display: none; } .login-card { max-width: 500px; } }
