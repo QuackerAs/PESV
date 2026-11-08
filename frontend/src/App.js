@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Layout from './components/layout/Layout';
 import Login from './pages/Login';
 import AdminDashboard from './pages/admin/Dashboard';
+import Users from './pages/admin/Users';
 import UserDashboard from './pages/user/Dashboard';
 import MyRoutes from './pages/user/MyRoutes';
 import './styles/globals.css';
@@ -55,6 +56,7 @@ function AppRoutes() {
             <Layout>
               <Routes>
                 <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="usuarios" element={<Users />} />
                 <Route path="*" element={<div>Página en construcción</div>} />
               </Routes>
             </Layout>

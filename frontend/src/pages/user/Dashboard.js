@@ -37,15 +37,12 @@ const UserDashboard = () => {
     });
   };
 
-  const StatCard = ({ icon, title, value, color, action }) => (
+  const StatCard = ({ icon, title, value, color }) => (
     <div className="stat-card" style={{ '--card-color': color }}>
       <div className="stat-icon">{icon}</div>
       <div className="stat-content">
         <h3 className="stat-value">{value}</h3>
         <p className="stat-title">{title}</p>
-        {action && (
-          <button className="stat-action">{action}</button>
-        )}
       </div>
     </div>
   );
@@ -54,8 +51,8 @@ const UserDashboard = () => {
     <div className="dashboard">
       <div className="dashboard-header">
         <div>
-          <h1>¡Hola, {user?.nombre}!</h1>
-          <p>Tu panel de seguridad vial</p>
+          <h1>Mi espacio de trabajo</h1>
+          <p>{user?.name || 'Usuario'} · datos de demostración</p>
         </div>
         <div className="dashboard-date">
           <Calendar size={20} />
@@ -73,10 +70,9 @@ const UserDashboard = () => {
         <div className="alert-banner warning">
           <AlertCircle size={24} />
           <div>
-            <h3>Recordatorio: Chequeo Preoperacional</h3>
-            <p>No olvides realizar el chequeo de tu vehículo antes de salir</p>
+            <h3>Chequeo preoperacional pendiente</h3>
+            <p>Este recordatorio forma parte de los datos de demostración.</p>
           </div>
-          <button className="alert-btn">Realizar Ahora</button>
         </div>
       )}
 
@@ -132,7 +128,7 @@ const UserDashboard = () => {
               <div className="badge badge-warning">Pendiente</div>
             </div>
             <div className="activity-item">
-              <div className="activity-icon">📚</div>
+              <div className="activity-icon"><GraduationCap size={20} /></div>
               <div className="activity-info">
                 <h4>Capacitación de Seguridad</h4>
                 <p>Completada hace 2 días</p>
@@ -163,10 +159,6 @@ const UserDashboard = () => {
               </div>
             </div>
           </div>
-          <button className="btn btn-primary" style={{ marginTop: '16px', width: '100%' }}>
-            <Car size={18} />
-            Realizar Chequeo Diario
-          </button>
         </div>
       </div>
 
@@ -175,18 +167,6 @@ const UserDashboard = () => {
           <h2>Acciones Rápidas</h2>
         </div>
         <div className="quick-actions">
-          <button className="quick-action-btn">
-            <AlertCircle size={20} />
-            <span>Reportar Incidente</span>
-          </button>
-          <button className="quick-action-btn">
-            <FileText size={20} />
-            <span>Ver Documentos</span>
-          </button>
-          <button className="quick-action-btn">
-            <GraduationCap size={20} />
-            <span>Mis Capacitaciones</span>
-          </button>
           <button className="quick-action-btn" onClick={() => navigate('/user/my-routes')}>
             <TrendingUp size={20} />
             <span>Ver Rutas</span>

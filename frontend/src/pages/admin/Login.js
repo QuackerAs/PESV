@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useFormHandler } from '../../hooks/useFormHandler';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
+import AccessibilityPanel from '../../components/accessibility/AccessibilityPanel';
 import { Mail, Lock, AlertCircle } from 'lucide-react';
 import './Login.css';
 
@@ -43,17 +44,14 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-background">
-        <div className="background-shape shape-1"></div>
-        <div className="background-shape shape-2"></div>
-        <div className="background-shape shape-3"></div>
-      </div>
+      <div className="login-accessibility"><AccessibilityPanel /></div>
+      <div className="login-intro"><span className="login-mark">PESV</span><h2>Gestión de seguridad vial</h2><p>Un espacio de trabajo para consultar actividades, rutas e indicadores del programa.</p><small>Entorno local de demostración</small></div>
 
       <div className="login-card">
         <div className="login-header">
           <div className="login-logo">PESV</div>
-          <h1>Sistema PESV</h1>
-          <p>Plan Estratégico de Seguridad Vial</p>
+          <h1>Iniciar sesión</h1>
+          <p>Accede a tu espacio de trabajo</p>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
@@ -85,16 +83,6 @@ const Login = () => {
             icon={<Lock size={20} />}
             required
           />
-
-          <div className="login-options">
-            <label className="remember-me">
-              <input type="checkbox" />
-              <span>Recordarme</span>
-            </label>
-            <a href="#forgot" className="forgot-password">
-              ¿Olvidaste tu contraseña?
-            </a>
-          </div>
 
           <Button
             type="submit"

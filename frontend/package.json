@@ -8,17 +8,19 @@
     "@capacitor/cli": "^8.0.2",
     "@capacitor/core": "^8.0.2",
     "axios": "^1.7.2",
+    "bootstrap-icons": "^1.13.2",
+    "http-proxy-middleware": "^2.0.6",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.294.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.20.0",
-    "react-scripts": "5.0.1",
-    "http-proxy-middleware": "^2.0.6"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "test": "jest --config jest.config.cjs --runInBand",
     "build": "react-scripts build",
     "cap:open": "npx cap open android",
     "cap:sync": "npm run build && npx cap sync android",
@@ -42,6 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

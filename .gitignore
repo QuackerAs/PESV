@@ -12,13 +12,32 @@
 # production
 /build
 /frontend/build
+/backend/target
+/android/app/build
+/android/build
+
+# local signing and agent state
+*.keystore
+*.jks
+*.apk
+*.aab
+.superpowers/
+.codex/
+.agents/
+.cursor/
+.claude/
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+*credentials*.json
 
 # misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env
+.env.*
+!.env.example
 
 npm-debug.log*
 yarn-debug.log*

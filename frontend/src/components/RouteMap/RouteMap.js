@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './RouteMap.css';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, MapPin, Pause, Play, Siren } from 'lucide-react';
 
 // solucionar problema de iconos de Leaflet con webpack
 delete L.Icon.Default.prototype._getIconUrl;
@@ -158,7 +158,7 @@ const RouteMap = ({ routeData, onEmergency }) => {
         <div ref={mapContainer} className="map-canvas" />
         <div className="map-info">
           <div className="info-card">
-            <h4>📍 Información de la Ruta</h4>
+            <h4><MapPin size={18} aria-hidden="true" /> Información de la ruta</h4>
             <p>Distancia: <strong>{distanceKm} km</strong></p>
             <p>Duración: <strong>{durationMin} min</strong></p>
             <p>Proveedor: <strong>{routeData.provider || 'Desconocido'}</strong></p>
@@ -176,12 +176,13 @@ const RouteMap = ({ routeData, onEmergency }) => {
           className={`btn-simulate ${isSimulating ? 'active' : ''}`}
           onClick={simulateMovement}
         >
-          {isSimulating ? '⏸ Detener Simulación' : '▶ Iniciar Simulación'}
+          {isSimulating ? <><Pause size={18} aria-hidden="true" /> Detener simulación</> : <><Play size={18} aria-hidden="true" /> Iniciar simulación</>}
         </button>
 
         <button className="btn-emergency" onClick={handleEmergency}>
           <AlertCircle size={20} />
-          <span>🚨 Reportar Emergencia</span>
+          <Siren size={18} aria-hidden="true" />
+          <span>Reportar emergencia</span>
         </button>
       </div>
     </div>
